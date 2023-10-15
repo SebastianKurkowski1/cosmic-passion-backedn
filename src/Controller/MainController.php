@@ -24,4 +24,11 @@ class MainController extends AbstractController
         $data = $requestHandler->nasaApiRequest("mrp-sol/$rover/$sol");
         return $this->json($data->toArray(), $data->getStatusCode());
     }
+
+    #[Route("/api/apod-range", name: "api_apod_range")]
+    public function apodRange(RequestHandler $requestHandler): JsonResponse
+    {
+        $data = $requestHandler->nasaApiRequest("apod-range");
+        return $this->json($data->toArray(), $data->getStatusCode());
+    }
 }
